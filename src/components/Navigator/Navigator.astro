@@ -1,0 +1,39 @@
+---
+import NavigatorLink from "./NavigatorLink.astro";
+
+let menu = [
+  {
+    icon: "uil:info-circle",
+    label: "About",
+    path: "/about",
+  },
+  {
+    icon: "uil:home-alt",
+    label: "Home",
+    path: "/",
+  },
+  {
+    icon: "uil:comment-alt",
+    label: "Contact",
+    path: "/contact",
+  },
+];
+---
+
+<div class="w-full p-5 bg-neutral-900">
+  <div class="flex justify-between items-end w-full">
+    {
+      menu.map((option) => (
+        <>
+          <NavigatorLink
+            class="flex flex-col cursor-pointer items-center gap-1 text-xs text-white font-bold"
+            data={option}
+          />
+        </>
+      ))
+    }
+  </div>
+  <div class="pt-3 bg-neutral-900">
+    <span class="block w-1/5 mx-auto bg-white h-1 rounded-full"></span>
+  </div>
+</div>

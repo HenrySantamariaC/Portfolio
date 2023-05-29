@@ -1,0 +1,64 @@
+---
+import photo1 from "/img/photo-1.jpg";
+import photo2 from "/img/photo-2.jpg";
+
+const data = [
+  {
+    title: "Campos Deportivos",
+    imgPath: photo1,
+  },
+  {
+    title: "Salas de reunion",
+    imgPath: photo2,
+  },
+  {
+    title: "Sala de computo",
+    imgPath: photo1,
+  },
+  {
+    title: "Piscina",
+    imgPath: photo2,
+  },
+];
+---
+
+<div class="swiper swiper-galery w-full h-[180px] select-none">
+  <div class="swiper-wrapper">
+    {
+      data.map((item) => (
+        <div class="swiper-slide w-[180px] ">
+          <img
+            src={item.imgPath}
+            alt={item.title}
+            class="rounded-xl overflow-hidden object-cover"
+          />
+        </div>
+      ))
+    }
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  import Swiper, { Pagination } from "swiper";
+  import "swiper/css/bundle";
+
+  const swiper = new Swiper(".swiper-galery", {
+    modules: [Pagination],
+    slidesPerView: "auto",
+    spaceBetween: 20,
+    direction: "horizontal",
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+  });
+</script>
+<style>
+  :root {
+    --tw-bg-opacity: 1;
+    /* --swiper-theme-color: rgb(126 34 206 / var(--tw-bg-opacity)); */
+    --swiper-theme-color: theme("colors.purple.700");
+  }
+</style>
