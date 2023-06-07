@@ -1,0 +1,24 @@
+---
+let flag = true;
+---
+
+<div
+  class="grid grid-cols-2 gap-5 bg-neutral-900 text-neutral-400 p-1 rounded-xl"
+>
+  <div class="w-full text-center font-bold">
+    <span
+      class:list={[
+        "block p-2  rounded-xl",
+        { "bg-purple-700 text-white": flag },
+      ]}>Fronted</span
+    >
+  </div>
+  <div class="w-full text-center font-bold text-neutral-400">
+    <span
+      class:list={[
+        "block p-2 rounded-xl",
+        { "bg-purple-700 text-white": !flag },
+      ]}>Backend</span
+    >
+  </div>
+</div>

@@ -1,0 +1,21 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<form>
+  <div class="relative text-white">
+    <label class="block text-sm font-bold mb-2" for="nombre">
+      <Icon
+        name={"uil:search"}
+        size="24"
+        class="absolute left-3 top-3 text-neutral-400"
+      />
+    </label>
+    <input
+      class="bg-black pl-11 shadow appearance-none border border-neutral-400 rounded-xl w-full py-2 px-3 placeholder:text-neutral-400 leading-8 focus:outline-none"
+      id="nombre"
+      type="text"
+      placeholder="Search"
+    />
+  </div>
+</form>

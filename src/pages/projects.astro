@@ -1,0 +1,54 @@
+---
+import MainLayout from "../layouts/Main.layout.astro";
+import SelectMenu from "../components/Common/SelectMenu.astro";
+import SwitchPath from "../components/Projects/SwitchPath.astro";
+import ChatItem from "../components/Projects/ChatItem.astro";
+
+let projects = [
+  {
+    image: "/img/portfolio/admin_cards.jpeg",
+    title: "Suncard",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non esse nostrum",
+    date: "01/21",
+  },
+  {
+    image: "/img/portfolio/memory_game.jpeg",
+    title: "Memory Game",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non esse nostrum",
+    date: "02/22",
+  },
+  {
+    image: "/img/portfolio/encriptador_alura.jpeg",
+    title: "Alura Encriptador",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non esse nostrum",
+    date: "04/22",
+  },
+  {
+    image: "/img/portfolio/convertidor_bases_numericas.jpeg",
+    title: "Convertidor Bases Numericas",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non esse nostrum",
+    date: "03 /23",
+  },
+];
+---
+
+<MainLayout>
+  <section class="flex flex-col gap-5 text-white grow p-8">
+    <div class="flex py-5">
+      <h1 class="text-2xl font-bold grow">Proyectos</h1>
+      <SelectMenu />
+    </div>
+    <SwitchPath />
+    <h2 class="text-xl font-bold">Todos</h2>
+    <div class="grid grid-cols-1 divide-y divide-neutral-900">
+      {projects.map((item) => <ChatItem data={item} />)}
+      <!-- <div class="text-center text-neutral-400 py-4">
+        <span>- No more projects -</span>
+      </div> -->
+    </div>
+  </section>
+</MainLayout>

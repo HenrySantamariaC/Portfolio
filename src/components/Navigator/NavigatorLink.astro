@@ -14,16 +14,14 @@ export interface Data {
 
 type Props = Data & HTMLAttributes<"a">;
 
-const { data, ...props } = Astro.props;
+const { data, class: className, ...props } = Astro.props;
 const { pathname } = Astro.url;
 const isActive =
   data.path === pathname || data.path === pathname.replace(/\/$/, "");
-const activeClass = "bg-purple-700 rounded-full";
 ---
 
-<a href={data.path} title={data.label} {...props}>
-  <div class={`w-12 p-2 ${isActive ? activeClass : ""}`}>
+<a href={data.path} title={data.label} class:list={[className]} {...props}>
+  <div class="w-8" class:list={[{ "text-purple-700": isActive }]}>
     <Icon name={data.icon} />
   </div>
-  <p>{data.label}</p>
 </a>

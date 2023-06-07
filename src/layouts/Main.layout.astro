@@ -1,3 +1,20 @@
-<div class="h-full mx-auto sm:aspect-[9/16] sm:rounded-3xl overflow-hidden">
-  <slot />
-</div>
+---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Navigator from "../components/Navigator/Navigator.astro";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-neutral-800">
+    <div
+      class="flex flex-col justify-between min-h-screen sm:w-[calc((100vh/16)*9)] bg-neutral-950 mx-auto"
+    >
+      <slot />
+      <Navigator />
+    </div>
+  </body>
+</html>

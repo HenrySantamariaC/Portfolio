@@ -1,0 +1,71 @@
+---
+import photo1 from "/img/photo-1.jpg";
+import photo2 from "/img/photo-2.jpg";
+
+const data = [
+  {
+    title: "Campos Deportivos",
+    imgPath: photo1,
+  },
+  {
+    title: "Salas de reunion",
+    imgPath: photo2,
+  },
+  {
+    title: "Sala de computo",
+    imgPath: photo1,
+  },
+  {
+    title: "Piscina",
+    imgPath: photo2,
+  },
+];
+---
+
+<div class="swiper swiper-galery w-[calc((60vh/16)*9)] h-[60vh]">
+  <div class="swiper-wrapper">
+    {
+      data.map((item) => (
+        <div class="swiper-slide h-full w-full rounded-3xl">
+          <img
+            src={item.imgPath}
+            alt={item.title}
+            class="object-cover h-full"
+          />
+        </div>
+      ))
+    }
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  import Swiper, { EffectCreative, Pagination } from "swiper";
+  import "swiper/css/bundle";
+
+  const swiper = new Swiper(".swiper-galery", {
+    modules: [EffectCreative, Pagination],
+    effect: "creative",
+    creativeEffect: {
+      prev: {
+        shadow: true,
+        translate: [0, 0, -200],
+      },
+      next: {
+        translate: ["100%", 0, 0],
+      },
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+  });
+</script>
+<style>
+  :root {
+    --tw-bg-opacity: 1;
+    /* --swiper-theme-color: theme("colors.purple.700"); */
+    --swiper-theme-color: theme("colors.white");
+  }
+</style>

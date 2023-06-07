@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon";
+import type { HTMLAttributes } from "astro/types";
+
+export interface Option {
+  label: string;
+  icon: string;
+}
+
+export interface Data {
+  data: Option;
+}
+
+type Props = Data & HTMLAttributes<"div">;
+
+const { data, class: className, ...props } = Astro.props;
+---
+
+<div
+  class:list={[
+    className,
+    "flex gap-2 items-center px-5 py-2 border-2 border-purple-700 text-purple-700 hover:bg-purple-700 hover:text-white rounded-xl",
+  ]}
+  {...props}
+>
+  <Icon name={data.icon} size="20" />
+  <span>{data.label}</span>
+</div>
